@@ -590,6 +590,7 @@ A．-2  B．0  C．-|-3|  D．(-1)²
             <option value="a3">A3 双栏</option>
           </select>
           <label class="fmt"><input type="radio" name="exFmt" value="pdf" checked>PDF</label>
+          <label class="fmt"><input type="radio" name="exFmt" value="word">Word</label>
           <label class="fmt"><input type="radio" name="exFmt" value="outline">细目表</label>
           <button class="btn-g" id="btnExport">导出</button>
         </span>
@@ -3909,7 +3910,9 @@ $('#pChapter').onchange = ()=>{
 });
 $('#btnExport').onclick = ()=>{
   const fmt=(document.querySelector('input[name="exFmt"]:checked')||{}).value||'pdf';
-  if(fmt==='outline') $('#btnOutline').click(); else $('#btnPrint').click();
+  if(fmt==='outline') $('#btnOutline').click();
+  else if(fmt==='word') $('#btnDocx').click();
+  else $('#btnPrint').click();
 };
 document.querySelectorAll('input[name="exFmt"]').forEach(r=>{
   r.onchange = ()=>{
